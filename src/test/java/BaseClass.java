@@ -3,11 +3,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
-
 
 public class BaseClass{
 
@@ -15,9 +15,8 @@ public class BaseClass{
 
     public WebDriver driver;
     public WebDriverWait wait;
-   // @Test
-    public void start() throws InterruptedException{
 
+    public void start() throws InterruptedException{
 
         String browser = BrowserType.FIREFOX;
         if (browser == BrowserType.CHROME) {
@@ -40,7 +39,7 @@ public class BaseClass{
         TimeUnit.SECONDS.sleep(sec);
     }
 
-    @AfterSuite
+    @AfterMethod
     public void stop(){
         driver.quit();
     }
